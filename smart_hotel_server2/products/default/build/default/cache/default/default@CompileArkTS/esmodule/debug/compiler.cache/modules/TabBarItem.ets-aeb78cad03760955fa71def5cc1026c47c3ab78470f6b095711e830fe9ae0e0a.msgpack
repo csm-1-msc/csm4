@@ -1,0 +1,6 @@
+Ôr@œªassertions¤code´customTransformCache¢id¤meta¬originalCode±originalSourcemap«resolvedIds®sourcemapChainµsyntheticNamedExportsµtransformDependencies¨cacheAstÔrA ÂÙuD:\useful_things\DevEco\materials\smart_hotel_server2\features\responsiveLayout\src\main\ets\viewmodel\TabBarItem.etsÔrB›ªmoduleName±isLocalDependency¯isNodeEntryFile§pkgPath±belongProjectPath§pkgNameªpkgVersion±dependencyPkgInfo¯hostModulesInfo°belongModulePath¬shouldEmitJs°responsiveLayoutÃÂÙOD:\useful_things\DevEco\materials\smart_hotel_server2\features\responsiveLayoutÙ5D:\useful_things\DevEco\materials\smart_hotel_server2¶@ohos/responsivelayout¥1.0.0ÔrC’§pkgNameªpkgVersion¶@ohos/responsivelayout¥1.0.0‘ÔrD’²hostDependencyName®hostModuleName¬./TabBarItem°responsiveLayoutÙOD:\useful_things\DevEco\materials\smart_hotel_server2\features\responsiveLayoutÃÙÌexport class TabBarItem {
+  id: number = 0;
+  name: Resource = $r('app.string.tab_name');
+  icon: Resource = $r('app.media.ic_tabs_icon');
+  selectIcon: Resource = $r('app.media.ic_tabs_icon_selected');
+}ÀAÂÔrE”²dynamicImportCache¹exportAllDeclarationCache»exportNamedDeclarationCache«importCache

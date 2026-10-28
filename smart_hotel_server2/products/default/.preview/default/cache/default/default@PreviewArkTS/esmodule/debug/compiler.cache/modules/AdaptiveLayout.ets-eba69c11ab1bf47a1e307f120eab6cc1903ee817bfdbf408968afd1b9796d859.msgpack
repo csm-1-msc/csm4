@@ -1,0 +1,57 @@
+Ôr@œªassertions¤code´customTransformCache¢id¤meta¬originalCode±originalSourcemap«resolvedIds®sourcemapChainµsyntheticNamedExportsµtransformDependencies¨cacheAstÔrA ÂÙsD:\useful_things\DevEco\materials\smart_hotel_server2\features\adaptiveLayout\src\main\ets\pages\AdaptiveLayout.etsÔrB›ªmoduleName±isLocalDependency¯isNodeEntryFile§pkgPath±belongProjectPath§pkgNameªpkgVersion±dependencyPkgInfo¯hostModulesInfo°belongModulePath¬shouldEmitJs®adaptiveLayoutÃÂÙMD:\useful_things\DevEco\materials\smart_hotel_server2\features\adaptiveLayoutÙ5D:\useful_things\DevEco\materials\smart_hotel_server2´@ohos/adaptivelayout¥1.0.0ÔrC’§pkgNameªpkgVersion´@ohos/adaptivelayout¥1.0.0‘ÔrD’²hostDependencyName®hostModuleNameÙ#./src/main/ets/pages/AdaptiveLayout®adaptiveLayoutÙMD:\useful_things\DevEco\materials\smart_hotel_server2\features\adaptiveLayoutÃÚfimport { SliderComponent } from '../view/SliderComponent';
+import { commonConstants } from '../constants/CommonConstants';
+
+const CONTAINER_WIDTH = 55;
+
+@Component
+struct AdaptiveLayoutItem {
+  @LocalStorageLink('containerWidth') containerWidth: number = CONTAINER_WIDTH;
+
+  build() {
+    Column() {
+      Column() {
+        Row() {
+          Row()
+            .width($r('app.float.flexible_left_item_width'))
+            .height($r('app.float.flexible_left_item_height'))
+            .backgroundColor($r('sys.color.ohos_id_color_component_normal'))
+            .borderRadius($r('app.float.flexible_left_item_border_radius'))
+          Blank()
+          Row()
+            .width($r('app.float.flexible_right_item_width'))
+            .height($r('app.float.flexible_right_item_height'))
+            .backgroundColor($r('sys.color.ohos_id_color_component_normal'))
+            .borderRadius($r('app.float.flexible_right_item_border_radius'))
+        }
+        .height($r('app.float.flexible_item_height'))
+        .borderRadius($r('app.float.flexible_item_border_radius'))
+        .padding({
+          left: $r('app.float.flexible_item_padding_left'),
+          right: $r('app.float.flexible_item_padding_right')
+        })
+        .backgroundColor($r('sys.color.ohos_id_color_background'))
+        .width('' + this.containerWidth + commonConstants.percentSign)
+      }
+      .width(commonConstants.columnWidth)
+      .flexShrink(commonConstants.columnFlexShrink)
+      .height(commonConstants.columnHeight)
+      .justifyContent(FlexAlign.Center)
+
+      Column() {
+        SliderComponent()
+      }
+      .margin({ bottom: commonConstants.sliderMargin })
+    }
+    .height(commonConstants.height)
+    .width(commonConstants.width)
+  }
+}
+
+@Builder
+export function adaptiveLayout() {
+  Column() {
+    AdaptiveLayoutItem()
+  }
+  .height(commonConstants.height)
+  .justifyContent(FlexAlign.Center)
+}ÀÔrE’·../view/SliderComponent¼../constants/CommonConstantsÔrF–ªassertions¨external¢id¤metaªresolvedByµsyntheticNamedExportsAÂÙsD:\useful_things\DevEco\materials\smart_hotel_server2\features\adaptiveLayout\src\main\ets\view\SliderComponent.etsAªoh-resolveÂFAÂÙxD:\useful_things\DevEco\materials\smart_hotel_server2\features\adaptiveLayout\src\main\ets\constants\CommonConstants.etsAªoh-resolveÂÂÔrG”²dynamicImportCache¹exportAllDeclarationCache»exportNamedDeclarationCache«importCache’ÔrH•¤type¥start£endªspecifiers¦source±ImportDeclarationÌ€Ìº‘ÔrI•¤type¥start£end¨imported¥local¯ImportSpecifierÌ‰Ì˜ÔrJ”¤type¥start£end¤nameªIdentifierÌ‰Ì˜¯SliderComponentJªIdentifierÌ‰Ì˜¯SliderComponentÔrK•¤type¥start£end¥value£raw§LiteralÌ Ì¹·../view/SliderComponent¹'../view/SliderComponent'H±ImportDeclarationÌ¼Ìû‘I¯ImportSpecifierÌÅÌÔJªIdentifierÌÅÌÔ¯commonConstantsJªIdentifierÌÅÌÔ¯commonConstantsK§LiteralÌÜÌú¼../constants/CommonConstants¾'../constants/CommonConstants'

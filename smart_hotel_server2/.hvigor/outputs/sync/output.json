@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "ohos-module-default": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\src\\main",
+        "RESOURCES_PATH": [
+          "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\src\\main\\resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\outputs\\default",
+          "INTERMEDIA_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\loader_out\\default",
+          "JS_LITE_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\loader_out_lite\\default",
+          "RES_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\res\\default",
+          "RES_PROFILE_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
+          "JS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\cache\\default\\default@CompileJS\\jsbundle",
+          "WORKER_LOADER": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\loader\\default\\loader.json",
+          "MANIFEST_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\manifest\\default",
+          "OUTPUT_METADATA_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
+          "SOURCE_MAP_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\source_map\\default"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      },
+      "ohosTest": {
+        "SOURCE_ROOT": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\src\\ohosTest",
+        "RESOURCES_PATH": [
+          "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\src\\ohosTest\\resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\outputs\\ohosTest",
+          "INTERMEDIA_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\loader_out\\ohosTest",
+          "JS_LITE_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\loader_out_lite\\ohosTest",
+          "RES_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\res\\ohosTest",
+          "RES_PROFILE_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\res\\ohosTest\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileArkTS\\esmodule",
+          "JS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileJS\\jsbundle",
+          "WORKER_LOADER": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\loader\\ohosTest\\loader.json",
+          "MANIFEST_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\manifest\\ohosTest",
+          "OUTPUT_METADATA_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\hap_metadata\\ohosTest\\output_metadata.json",
+          "SOURCE_MAP_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default\\build\\default\\intermediates\\source_map\\ohosTest"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": true,
+        "copyFrom": "default",
+        "strictMode": {
+          "caseSensitiveCheck": true,
+          "useNormalizedOHMUrl": true
+        },
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        },
+        "name": "debug"
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        }
+      },
+      "buildOptionSet": [
+        {
+          "name": "release",
+          "arkOptions": {
+            "obfuscation": {
+              "ruleOptions": {
+                "enable": false,
+                "files": [
+                  "./obfuscation-rules.txt"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "debug"
+        }
+      ],
+      "targets": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "ohosTest"
+        }
+      ]
+    },
+    "BUILD_CACHE_DIR": ""
+  },
+  "ohos-module-common": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\src\\main",
+        "RESOURCES_PATH": [
+          "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\src\\main\\resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\outputs\\default",
+          "INTERMEDIA_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\intermediates\\loader_out\\default",
+          "JS_LITE_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\intermediates\\loader_out_lite\\default",
+          "RES_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\intermediates\\res\\default",
+          "RES_PROFILE_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\cache\\default\\default@HarCompileArkTS\\esmodule",
+          "JS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\cache\\default\\default@HarCompileJS\\jsbundle",
+          "WORKER_LOADER": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\intermediates\\loader\\default\\loader.json",
+          "MANIFEST_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\intermediates\\manifest\\default",
+          "OUTPUT_METADATA_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
+          "SOURCE_MAP_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common\\build\\default\\intermediates\\source_map\\default"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": true,
+        "copyFrom": "default",
+        "strictMode": {
+          "caseSensitiveCheck": true,
+          "useNormalizedOHMUrl": true
+        },
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        },
+        "name": "debug"
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        }
+      },
+      "buildOptionSet": [
+        {
+          "name": "release",
+          "arkOptions": {
+            "obfuscation": {
+              "ruleOptions": {
+                "enable": false,
+                "files": [
+                  "./obfuscation-rules.txt"
+                ]
+              },
+              "consumerFiles": [
+                "./consumer-rules.txt"
+              ]
+            }
+          }
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "debug"
+        }
+      ],
+      "targets": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    "BUILD_CACHE_DIR": ""
+  },
+  "ohos-module-adaptiveLayout": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\src\\main",
+        "RESOURCES_PATH": [
+          "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\src\\main\\resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\outputs\\default",
+          "INTERMEDIA_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\intermediates\\loader_out\\default",
+          "JS_LITE_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\intermediates\\loader_out_lite\\default",
+          "RES_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\intermediates\\res\\default",
+          "RES_PROFILE_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\cache\\default\\default@HarCompileArkTS\\esmodule",
+          "JS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\cache\\default\\default@HarCompileJS\\jsbundle",
+          "WORKER_LOADER": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\intermediates\\loader\\default\\loader.json",
+          "MANIFEST_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\intermediates\\manifest\\default",
+          "OUTPUT_METADATA_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
+          "SOURCE_MAP_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout\\build\\default\\intermediates\\source_map\\default"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": true,
+        "copyFrom": "default",
+        "strictMode": {
+          "caseSensitiveCheck": true,
+          "useNormalizedOHMUrl": true
+        },
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        },
+        "name": "debug"
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        }
+      },
+      "buildOptionSet": [
+        {
+          "name": "release",
+          "arkOptions": {
+            "obfuscation": {
+              "ruleOptions": {
+                "enable": false,
+                "files": [
+                  "./obfuscation-rules.txt"
+                ]
+              },
+              "consumerFiles": [
+                "./consumer-rules.txt"
+              ]
+            }
+          }
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "debug"
+        }
+      ],
+      "targets": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    "BUILD_CACHE_DIR": ""
+  },
+  "ohos-module-responsiveLayout": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\src\\main",
+        "RESOURCES_PATH": [
+          "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\src\\main\\resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\outputs\\default",
+          "INTERMEDIA_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\intermediates\\loader_out\\default",
+          "JS_LITE_ASSETS_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\intermediates\\loader_out_lite\\default",
+          "RES_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\intermediates\\res\\default",
+          "RES_PROFILE_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\cache\\default\\default@HarCompileArkTS\\esmodule",
+          "JS_SUPER_VISUAL_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\cache\\default\\default@HarCompileJS\\jsbundle",
+          "WORKER_LOADER": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\intermediates\\loader\\default\\loader.json",
+          "MANIFEST_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\intermediates\\manifest\\default",
+          "OUTPUT_METADATA_JSON": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
+          "SOURCE_MAP_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout\\build\\default\\intermediates\\source_map\\default"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": true,
+        "copyFrom": "default",
+        "strictMode": {
+          "caseSensitiveCheck": true,
+          "useNormalizedOHMUrl": true
+        },
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        },
+        "name": "debug"
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {
+        "resOptions": {
+          "copyCodeResource": {
+            "enable": false
+          }
+        }
+      },
+      "buildOptionSet": [
+        {
+          "name": "release",
+          "arkOptions": {
+            "obfuscation": {
+              "ruleOptions": {
+                "enable": false,
+                "files": [
+                  "./obfuscation-rules.txt"
+                ]
+              },
+              "consumerFiles": [
+                "./consumer-rules.txt"
+              ]
+            }
+          }
+        },
+        {
+          "name": "default"
+        },
+        {
+          "name": "debug"
+        }
+      ],
+      "targets": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    "BUILD_CACHE_DIR": ""
+  },
+  "ohos-project": {
+    "SELECT_PRODUCT_NAME": "default",
+    "MODULE_BUILD_DIR": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\build",
+    "BUNDLE_NAME": "com.atguigu.smart_hotel_server2",
+    "VERSION_CODE": 1000000,
+    "VERSION_NAME": "1.0.0",
+    "BUILD_VERSION": "1",
+    "BUILD_PATH": {
+      "OUTPUT_PATH": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\build\\outputs\\default"
+    },
+    "MODULES": [
+      {
+        "name": "default",
+        "srcPath": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\products\\default",
+        "targets": [
+          {
+            "name": "default",
+            "applyToProducts": [
+              "default"
+            ]
+          }
+        ],
+        "belongProjectPath": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2"
+      },
+      {
+        "name": "common",
+        "srcPath": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\common",
+        "targets": [
+          {
+            "name": "default"
+          }
+        ],
+        "belongProjectPath": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2"
+      },
+      {
+        "name": "adaptiveLayout",
+        "srcPath": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\adaptiveLayout",
+        "targets": [
+          {
+            "name": "default"
+          }
+        ],
+        "belongProjectPath": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2"
+      },
+      {
+        "name": "responsiveLayout",
+        "srcPath": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2\\features\\responsiveLayout",
+        "targets": [
+          {
+            "name": "default"
+          }
+        ],
+        "belongProjectPath": "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2"
+      }
+    ],
+    "PROFILE_OPT": {
+      "app": {
+        "signingConfigs": [],
+        "products": [
+          {
+            "name": "default",
+            "signingConfig": "default",
+            "targetSdkVersion": "26.0.0",
+            "compatibleSdkVersion": "6.1.1(24)",
+            "runtimeOS": "HarmonyOS",
+            "buildOption": {
+              "strictMode": {
+                "caseSensitiveCheck": true,
+                "useNormalizedOHMUrl": true
+              }
+            }
+          }
+        ],
+        "buildModeSet": [
+          {
+            "name": "debug"
+          },
+          {
+            "name": "release"
+          }
+        ]
+      },
+      "modules": [
+        {
+          "name": "default",
+          "srcPath": "./products/default",
+          "targets": [
+            {
+              "name": "default",
+              "applyToProducts": [
+                "default"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "common",
+          "srcPath": "./common",
+          "targets": [
+            {
+              "name": "default"
+            }
+          ]
+        },
+        {
+          "name": "adaptiveLayout",
+          "srcPath": "./features/adaptiveLayout",
+          "targets": [
+            {
+              "name": "default"
+            }
+          ]
+        },
+        {
+          "name": "responsiveLayout",
+          "srcPath": "./features/responsiveLayout",
+          "targets": [
+            {
+              "name": "default"
+            }
+          ]
+        }
+      ]
+    },
+    "CONFIG_PROPERTIES": {
+      "enableSignTask": true,
+      "skipNativeIncremental": false,
+      "hvigor.keepDependency": true
+    },
+    "OVERALL_PROJECT_PATHS": [
+      "D:\\useful_things\\DevEco\\materials\\smart_hotel_server2"
+    ],
+    "BUILD_CACHE_DIR": ""
+  }
+}

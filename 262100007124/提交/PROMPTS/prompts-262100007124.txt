@@ -1,0 +1,259 @@
+# opencode 提示词汇总（2026）
+
+> 导出时间：2026-10-21
+> 来源：opencode 会话记录中我本人输入的提示词
+> 共 6 个会话
+> 2026-10-20 补充：已合并 `session-ses_ec29.md` 中 2026-10-18 之后的后续提示词（会话 3），重复粘贴的相同提示词只保留一条。
+> 2026-10-21 补充：已合并当前会话新增提示词（会话 6），并按内容去重。
+
+---
+
+## 会话 1：解释materials工作区文件用途
+
+- 时间：2026/10/15 09:58:48
+- 目录：D:/useful_things/DevEco/materials
+
+### 提示词 1（2026/10/15 10:02:40）
+
+Workspace:
+- Name: materials
+- Root: d:\useful_things\DevEco\materials
+- Paths below are workspace-relative unless marked absolute.
+
+检查一下这些文件，是干什么的，目前我不知道任何情况，通俗易懂讲解一下，这个需要我干什么，怎么做，讲的是什么？
+
+### 提示词 2（2026/10/15 10:11:52）
+
+Called the Read tool with the following input: {"filePath":"c:\Users\csm\AppData\Roaming\Trae CN\User\workspaceStorage\e71834c871d5b0e8333b8a7818924a56\haoyangzeng.opencui\attachments\att_1792030312405_lnqw386t"}
+
+Called the Read tool with the following input: {"filePath":"c:\Users\csm\AppData\Roaming\Trae CN\User\workspaceStorage\e71834c871d5b0e8333b8a7818924a56\haoyangzeng.opencui\attachments\att_1792030312406_plnn6vkq"}
+
+Called the Read tool with the following input: {"filePath":"c:\Users\csm\AppData\Roaming\Trae CN\User\workspaceStorage\e71834c871d5b0e8333b8a7818924a56\haoyangzeng.opencui\attachments\att_1792030312408_sb5nb5e9"}
+
+Called the Read tool with the following input: {"filePath":"c:\Users\csm\AppData\Roaming\Trae CN\User\workspaceStorage\e71834c871d5b0e8333b8a7818924a56\haoyangzeng.opencui\attachments\att_1792030312408_ftsj3e5o"}
+
+Called the Read tool with the following input: {"filePath":"c:\Users\csm\AppData\Roaming\Trae CN\User\workspaceStorage\e71834c871d5b0e8333b8a7818924a56\haoyangzeng.opencui\attachments\att_1792030312409_wsi71hun"}
+
+Called the Read tool with the following input: {"filePath":"c:\Users\csm\AppData\Roaming\Trae CN\User\workspaceStorage\e71834c871d5b0e8333b8a7818924a56\haoyangzeng.opencui\attachments\att_1792030312410_yqvsc5lk"}
+
+Workspace:
+- Name: materials
+- Root: d:\useful_things\DevEco\materials
+- Paths below are workspace-relative unless marked absolute.
+
+这些是视频的一些截图，你可以看视频吗？现在帮我做这一个项目，按照文档要求。
+
+### 提示词 3（2026/10/15 10:25:00）
+
+Workspace:
+- Name: materials
+- Root: d:\useful_things\DevEco\materials
+- Paths below are workspace-relative unless marked absolute.
+
+继续
+
+---
+
+## 会话 2：New session - 2026-10-15T02:35:18.678Z
+
+- 时间：2026/10/15 10:35:18
+- 目录：D:/useful_things/DevEco/materials
+
+### 提示词 1（2026/10/15 10:35:18）
+
+在我的@
+
+---
+
+## 会话 3：We need answer only title. Need same language as user message: Chinese. Need ≤50 chars. Need focu...
+
+- 时间：2026/10/15 10:37:11
+- 目录：D:/useful_things/DevEco/materials
+
+### 提示词 1（2026/10/15 10:37:11）
+
+检查我当前文件夹下的所以内容，查看视频，视频是完成的最终效果，按照文档要求开始做，整体代码为鸿蒙代码。
+
+### 提示词 2（2026/10/15 10:40:14）
+
+Continue if you have next steps, or stop and ask for clarification if you are unsure how to proceed.
+
+### 提示词 3（2026/10/15 10:48:18）
+
+Continue if you have next steps, or stop and ask for clarification if you are unsure how to proceed.
+
+### 提示词 4（2026/10/15 11:02:02）
+
+Continue if you have next steps, or stop and ask for clarification if you are unsure how to proceed.
+
+### 提示词 5（2026/10/15 11:12:11）
+
+我在DevEco Studio里面运行，使用预览器。
+
+### 提示词 6（2026/10/15 11:18:23）
+
+smart_hotel_server文件夹无法打开，把smart_hotel_server文件夹内容转入smart_hotel_server2里面,这个可以使用。
+
+### 提示词 7（2026/10/15 14:15:55）
+
+没有完全复制到smart_hotel_server2,
+
+### 提示词 8（2026/10/15 14:18:27）
+
+/memory set preference.language "Chinese"
+
+### 提示词 9（2026/10/15 14:20:35）
+
+我应该对哪个文件继续预览器查看
+
+### 提示词 10（2026/10/15 14:24:51）
+
+账号是什么
+
+### 提示词 11（2026/10/15 14:28:42）
+
+目前使用时是smart_hotel_server还是smart_hotel_server2，
+
+### 提示词 12（2026/10/15 14:37:17）
+
+[Image 1] 首页的空调温度调节需要开启空调才能使用，并给予提示请先开启空调。关闭空调也给予提示已关闭空调。[Image 2] 场景模式和快捷服务，按下对应的按钮，给予提示，如：按下明亮模式，给予提示：切换为明亮模式，其他的一样。
+
+### 提示词 13
+
+> 来自 `session-ses_ec29.md`（原文连续发送 2 次，此处合并为 1 条）
+
+现在有几个小问题，需要修改一下，1.首页空调加减温度无提示。2.首页场景模式和灯光页面场景模式的总按钮绑定是错误的，首页和灯光的场景模式不绑定，首页是和空调有关，和空调总按钮有关，空调按钮为开启，不能使用。3.窗帘界面的打开动画有小问题，打开时动画不能超过上面的杆子，打开后有白色，换成透明的。甚至不需要打开后没有窗帘的地方不需要颜色，就是背景，让背景色留着即可。
+
+### 提示词 14
+
+> 来自 `session-ses_ec29.md`（原文连续发送 4 次，此处合并为 1 条）
+
+现在灯光，窗帘，服务都没有问题不需要动和改。当前首页还是有一点问题，1.空调默认为关。2.快捷服务请勿打扰和清理房间打开和关闭的动态有问题，不会改变，响应正常，可以参考晚安模式的打开和改变，调整动态问题。
+
+### 提示词 15（2026/10/20）
+
+将两份提示词合并到2026.md里面，然后检查所有文件，然后根据技术文件.docx查看还有什么未完成，并开始做。
+
+---
+
+## 会话 4：Set memory preference language to Chinese
+
+- 时间：2026/10/15 14:48:52
+- 目录：D:/useful_things/DevEco/materials
+
+### 提示词 1（2026/10/15 14:48:52）
+
+/memory set preference.language "Chinese"
+
+### 提示词 2（2026/10/15 14:49:08）
+
+q
+
+---
+
+## 会话 5：Listing opencode sessions
+
+- 时间：2026/10/15 14:50:23
+- 目录：D:/useful_things/DevEco/materials
+
+### 提示词 1（2026/10/15 14:50:23）
+
+opencode session list
+
+### 提示词 2（2026/10/15 14:51:08）
+
+opencode -c
+
+### 提示词 3（2026/10/15 14:55:19）
+
+查看文件夹里面的所有文件，里面是鸿蒙代码，smart_hotel_server2是可以用的，smart_hotel里面代码中，登陆界面中输入姓名无法写中文，[Image 1] 。进入后[Image 2] 加入上下滑动，下面的有时候按不到。
+
+### 提示词 4（2026/10/15 16:20:36）
+
+[Image 1]  灯光界面，为开启总开关不能开启场景模式，[Image 2] ，然后把对于模式的默认独立控制按照图片更改[Image 3] [Image 4] [Image 5] [Image 6] [Image 7] [Image 8]
+
+### 提示词 5（2026/10/15 16:32:19）
+
+首先进入灯光界面，所有按钮默认全部关闭，场景模式和独立控制必须在总开关开启才可以使用，未开启总开关给予提示，独立控制的按钮，无论是哪一个模式，用户都可以决定按钮开启或关闭。明亮模式下独立控制按钮默认全开。柔和模式默认开启落地灯、左右阅读灯，其他关闭。阅读模式默认开启左右阅读灯和书桌灯，其他关闭。温馨模式默认开启落地灯和吧灯，其他关闭。睡眠模式默认只开启廊灯。
+
+### 提示词 6（2026/10/15 16:35:00）
+
+灯光界面，独立控制按钮是全开的贴图，没有动态效果。不确定是开启还是关闭，修改一下
+
+### 提示词 7（2026/10/15 16:42:18）
+
+[Image 1] [Image 2] 窗帘界面，打开按钮图片展示开口太小，暂停是动画在移动时停止，目前暂停和打开的开口有些问题，具体可以看智慧客房运行效果视频.mp4
+
+### 提示词 8（2026/10/15 16:44:33）
+
+Continue if you have next steps, or stop and ask for clarification if you are unsure how to proceed.
+
+### 提示词 9（2026/10/15 16:55:23）
+
+窗帘界面，打开和关闭的速度太快，调整一下，按下按钮给予提示。服务界面按钮无法使用，打开和关闭加入提示，右上角的SOS按下给予提示紧急求助已发送，前台将立即与您联系。
+
+### 提示词 10（2026/10/15 17:03:18）
+
+服务界面，请勿打扰和清理房间的按钮没有打开和关闭的动画，不是动态的
+
+### 提示词 11（2026/10/15 17:10:35）
+
+服务的按钮改成和独立控制一样的按钮，开关都有改变。
+
+### 提示词 12（2026/10/15 17:13:41）
+
+服务按钮还原会之前的，按钮打开和关闭要有动态。
+
+### 提示词 13（2026/10/15 17:17:57）
+
+服务里面，请勿打扰当前的按钮是打开绿的，关闭是要和清理房间的按钮一样，打开还是现在这样。清理房间打开要和请勿打扰一样，目前是关闭状态。目前请勿打扰和清理房间都要问题，开关打开和关闭没有区别。
+
+---
+
+## 会话 6：当前会话后续提示词（2026-10-20 至 2026-10-21）
+
+- 说明：以下为 `2026.md` 导出后新增的提示词，已按内容去重。
+
+### 提示词 1（2026-10-20 09:46:16）
+
+做2，签名不需要，到时候是把一个包托过去由我来做，目前是做不了的。
+
+### 提示词 2（2026-10-20 13:37:05）
+
+先验收，hap等等我有一个可以弄，等等你查看一下有没有问题。
+
+### 提示词 3（2026-10-20 13:39:57）
+
+现在登陆成功会进入界面又立刻回到登录页面，返回401 code=1101
+
+### 提示词 4（2026-10-20 13:55:40）
+
+[Image 1] [Image 2] [Image 3] 灯光，窗帘，服务界面全是白屏，后端都是200，
+
+### 提示词 5（2026-10-20 14:03:39）
+
+好了，但是现在从一个界面到另一个界面有时候会把上一个界面重叠到下一个界面，过几秒消失。界面切换有的往左滑，有的往右滑，按界面排序滑动，合理调整滑动方向。
+
+### 提示词 6（2026-10-20 14:14:16）
+
+首页的场景界面和灯光界面不交互，两个都是独立界面，首页的场景模式，不能影响灯光界面，一个是空调，一个是灯光，所有界面默认全关。
+
+### 提示词 7（2026-10-20 14:39:32）
+
+灯光界面不需要操作日志，服务界面的请勿打扰和清理房间的打开和关闭按按钮才会动，不是按那个区域开关就会动。
+
+### 提示词 8（2026-10-20 14:49:33）
+
+登陆界面进入首页，有个加载，加载期间首页没有场景模式用不用管，影响评分吗？
+
+### 提示词 9（2026-10-20 14:51:07）
+
+那你处理一下。解决这个问题。
+
+### 提示词 10（2026-10-21 14:08:56）
+
+我再弄hap的时候在运行情况下的DevEco Studio的构建里面的hap时，不确定hap是不是对的，删除了，现在出现工程同步失败，一些基础功能，预览器生效，目前无法使用。帮我修复一下，我这个方法的hap是正确的吗？
+
+### 提示词 11（2026-10-21 14:18:34）
+
+[Image 1] 现在弄好了hap，可以查看一下，然后还有什么没有做的，后面还要按照文件要求在262100007124的提交文件夹里面将对应文件放入其中。

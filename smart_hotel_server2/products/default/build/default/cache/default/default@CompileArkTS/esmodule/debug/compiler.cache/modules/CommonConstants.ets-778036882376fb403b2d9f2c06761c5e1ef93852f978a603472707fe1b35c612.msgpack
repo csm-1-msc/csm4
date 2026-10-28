@@ -1,0 +1,67 @@
+Ôr@œªassertions¤code´customTransformCache¢id¤meta¬originalCode±originalSourcemap«resolvedIds®sourcemapChainµsyntheticNamedExportsµtransformDependencies¨cacheAstÔrA ÂÙgD:\useful_things\DevEco\materials\smart_hotel_server2\common\src\main\ets\constants\CommonConstants.etsÔrB›ªmoduleName±isLocalDependency¯isNodeEntryFile§pkgPath±belongProjectPath§pkgNameªpkgVersion±dependencyPkgInfo¯hostModulesInfo°belongModulePath¬shouldEmitJs¦commonÃÂÙ<D:\useful_things\DevEco\materials\smart_hotel_server2\commonÙ5D:\useful_things\DevEco\materials\smart_hotel_server2¬@ohos/common¥1.0.0ÔrC’§pkgNameªpkgVersion¬@ohos/common¥1.0.0‘ÔrD’²hostDependencyName®hostModuleName¼../constants/CommonConstants¦commonÙ<D:\useful_things\DevEco\materials\smart_hotel_server2\commonÃÚ£interface CommonConstantsInterface {
+  breakpointsSmName: string;
+  breakpointsMdName: string;
+  breakpointsLgName: string;
+  breakpointsXlName: string;
+  breakpointsSmSize: number;
+  breakpointsMdSize: number;
+  breakpointsLgSize: number;
+  breakpointsXlSize: number;
+  breakpointsInitializeName: string;
+  breakpointIdInitializeName: string;
+}
+
+/**
+ * Common constants for all features.
+ */
+export const commonConstants: CommonConstantsInterface = {
+  /**
+   * Breakpoint sm.
+   */
+  breakpointsSmName: 'sm',
+
+  /**
+   * Breakpoint md.
+   */
+  breakpointsMdName: 'md',
+
+  /**
+   * Breakpoint lg.
+   */
+  breakpointsLgName: 'lg',
+
+  /**
+   * Breakpoint xl.
+   */
+  breakpointsXlName: 'xl',
+
+  /**
+   * The break point value of sm device.
+   */
+  breakpointsSmSize: 0,
+
+  /**
+   * The break point value of md device.
+   */
+  breakpointsMdSize: 600,
+
+  /**
+   * The break point value of lg device.
+   */
+  breakpointsLgSize: 840,
+
+  /**
+   * The break point value of xl device.
+   */
+  breakpointsXlSize: 1320,
+
+  /**
+   * Initialize device breakpoints.
+   */
+  breakpointsInitializeName: 'md',
+
+  /**
+   * Initialize device breakpoint Id.
+   */
+  breakpointIdInitializeName: 'unknown'
+};ÀAÂÔrE”²dynamicImportCache¹exportAllDeclarationCache»exportNamedDeclarationCache«importCache

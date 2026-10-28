@@ -1,0 +1,22 @@
+Ôr@œªassertions¤code´customTransformCache¢id¤meta¬originalCode±originalSourcemap«resolvedIds®sourcemapChainµsyntheticNamedExportsµtransformDependencies¨cacheAstÔrA ÂÙsD:\useful_things\DevEco\materials\smart_hotel_server2\features\adaptiveLayout\src\main\ets\view\SliderComponent.etsÔrB›ªmoduleName±isLocalDependency¯isNodeEntryFile§pkgPath±belongProjectPath§pkgNameªpkgVersion±dependencyPkgInfo¯hostModulesInfo°belongModulePath¬shouldEmitJs®adaptiveLayoutÃÂÙMD:\useful_things\DevEco\materials\smart_hotel_server2\features\adaptiveLayoutÙ5D:\useful_things\DevEco\materials\smart_hotel_server2´@ohos/adaptivelayout¥1.0.0ÔrC’§pkgNameªpkgVersion´@ohos/adaptivelayout¥1.0.0‘ÔrD’²hostDependencyName®hostModuleName·../view/SliderComponent®adaptiveLayoutÙMD:\useful_things\DevEco\materials\smart_hotel_server2\features\adaptiveLayoutÃÚìimport { commonConstants } from '../constants/CommonConstants';
+
+const CONTAINER_WIDTH = 55;
+
+@Component
+export struct SliderComponent {
+  @LocalStorageLink('containerWidth') containerWidth: number = CONTAINER_WIDTH;
+
+  build() {
+    Slider({
+      value: this.containerWidth,
+      min: commonConstants.sliderMin,
+      max: commonConstants.sliderMax
+    })
+      .width($r('app.float.slider_width'))
+      .onChange((value: number) => {
+        this.containerWidth = value;
+      })
+  }
+}
+
+ÀÔrE‘¼../constants/CommonConstantsÔrF–ªassertions¨external¢id¤metaªresolvedByµsyntheticNamedExportsAÂÙxD:\useful_things\DevEco\materials\smart_hotel_server2\features\adaptiveLayout\src\main\ets\constants\CommonConstants.etsAªoh-resolveÂÂÔrG”²dynamicImportCache¹exportAllDeclarationCache»exportNamedDeclarationCache«importCache‘ÔrH•¤type¥start£endªspecifiers¦source±ImportDeclarationÌ€Ì¿‘ÔrI•¤type¥start£end¨imported¥local¯ImportSpecifierÌ‰Ì˜ÔrJ”¤type¥start£end¤nameªIdentifierÌ‰Ì˜¯commonConstantsJªIdentifierÌ‰Ì˜¯commonConstantsÔrK•¤type¥start£end¥value£raw§LiteralÌ Ì¾¼../constants/CommonConstants¾'../constants/CommonConstants'

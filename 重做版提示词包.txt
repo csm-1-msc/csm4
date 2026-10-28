@@ -1,0 +1,522 @@
+============================================================
+智慧客房 · 重做版提示词包（OpenCode）
+============================================================
+
+用途：
+- 这是“重做一遍”的提示词模板，不是本次提交的 PROMPTS 文件。
+- 不要把这个文件放进 提交/PROMPTS/，否则会混入非比赛提示词。
+- 建议按顺序复制发送，每次只发一个提示词，等这一步通过再发下一步。
+
+使用原则：
+1. 先建立 PROJECT_SPEC.md，后续提示词只写“先读 PROJECT_SPEC.md”。
+2. 一次只做一个 Feature，完成就 build，不要最后一次性修。
+3. 每个提示词都写清楚“只允许改哪些文件”，防止 AI 顺手重构。
+4. 每个阶段都必须运行测试/构建，失败先修，不要只说“已完成”。
+5. 不伪造签名、不声称模拟器已安装、不把未执行的 UI 用例写成通过。
+6. 文档和图片最后生成，以实际代码为准，不要凭记忆写。
+
+建议时间分配（240 分钟）：
+- 10 分钟：生成 PROJECT_SPEC.md
+- 30 分钟：工程骨架 + Commons + phone 壳
+- 90 分钟：5 个 Feature（每个约 18 分钟）
+- 30 分钟：集成、轮询、Token、错误处理
+- 30 分钟：测试 + 修复
+- 25 分钟：ModuleA 文档、draw.io、PNG
+- 25 分钟：打包、HAP、报告、提示词导出、检查
+
+
+============================================================
+提示词 01：生成项目事实卡 PROJECT_SPEC.md
+============================================================
+
+【提示词开始】
+
+读取当前工作区的接口文档、UI 素材包、运行效果视频和已有工程。
+生成 PROJECT_SPEC.md，只写事实，不要写业务代码，不要提问。
+
+必须包含：
+
+1. 架构与目录
+- Commons / Features / Products 三层完整目录树
+- 每个 HAR 的包名、职责、入口文件
+- products/phone 的 HAP 配置、入口 Ability、页面路由
+
+2. 状态与数据
+- AppState 全部字段、类型、默认值
+- AppState 的写回方法、重置方法
+- token 的存储方式与读取方式
+- 3 秒轮询的启动/停止位置
+
+3. API 表
+逐项列出：方法、路径、鉴权、请求体、响应体、错误码
+必须覆盖：
+- 登录 / 登出
+- 整房快照
+- 空调开关、温度
+- 灯光总开关、场景、单灯
+- 窗帘单帘、批量
+- 客房服务开关、SOS
+
+4. 页面与交互
+5 个页面：登录、首页、灯光、窗帘、客房服务
+每个页面写：入口、路由名、核心组件、空态/加载态、失败提示
+
+5. UI token
+从素材包提取：主色、背景色、卡片色、文字色、危险色、
+字号层级、圆角、间距、阴影、背景图使用方式
+logo 素材缺失时使用占位并记录，不要自行生成品牌 logo
+
+6. 测试矩阵
+登录场景、设备控制场景、异常处理场景
+每条写：输入、预期、对应接口、测试文件建议
+
+7. 验收命令
+- ohpm install --all
+- hvigorw test --mode module -p module=phone@default -p product=default --no-daemon
+- hvigorw assembleHap --mode module -p product=default --no-daemon
+
+8. 禁止事项
+- 禁止 @State/@Prop/@Link 等 V1 装饰器
+- 禁止 router，统一 Navigation + NavPathStack
+- 禁止 View 直接调用 ApiService/HttpClient
+- 禁止 ViewModel 直接操作 UI 组件
+- 禁止修改赛场 Mock 后端源码
+- 禁止改动素材包原始文件
+- 禁止把未执行用例写成通过
+
+完成后只输出：
+- PROJECT_SPEC.md 的章节目录
+- 关键风险 3 条
+- 需要我确认的素材缺口（如有）
+
+【提示词结束】
+
+
+============================================================
+提示词 02：工程骨架与 Commons
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md，按其中目录树搭建工程骨架。
+只实现骨架和公共能力，不要实现 5 个业务页面。
+
+必须完成：
+
+1. 根工程
+- build-profile.json5 注册 commons 4 个模块、features 5 个模块、products/phone
+- 根 oh-package.json5 配置 hypium/hamock
+- 每个 HAR 的 module.json5 类型为 har
+- products/phone 的 module.json5 类型为 entry
+
+2. Commons 4 个 HAR
+- @smart_hotel/utils：BusinessRules、Scale、Theme
+- @smart_hotel/network：HttpClient、ApiService、AuthToken、Constants、Models
+- @smart_hotel/datastore：AppState、RoomRepository、TokenStore
+- @smart_hotel/uicomponents：Backdrop、ToggleSwitch、PageTitle、TabBar
+
+3. phone 产品壳
+- PhoneApp：登录态切换、Navigation、NavPathStack、4 个 Tab
+- pages/Index：@Entry，只挂载 PhoneApp
+- EntryAbility：沉浸式、安全区、TokenStore 初始化
+- 轮询生命周期：页面可见时启动，退出时停止
+
+4. 约束
+- 全部使用 ArkUI V2 装饰器
+- 跨模块 import 使用 @smart_hotel/* 包名
+- 不实现具体业务逻辑，不写假数据页面
+- 不改后端、不改素材
+
+验收：
+1. ohpm install --all
+2. hvigorw assembleHap --mode module -p product=default --no-daemon
+3. 失败先修，不要结束
+4. 输出：新增文件、构建结果、下一步建议
+
+【提示词结束】
+
+
+============================================================
+提示词 03：登录 Feature
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md，只实现 features/login。
+只允许修改 features/login，以及必要的 commons/network、commons/datastore 接口；
+禁止修改其他 Feature、products/phone、后端和素材。
+
+必须完成：
+- LoginPage / LoginViewModel / LoginModel 严格 MVVM
+- 房号、姓名非空校验
+- 调用 POST /api/auth/login
+- 保存 token 和用户信息
+- 登录成功后加载整房快照
+- 失败 Toast，停留在登录页
+- 自动登录：token 有效直接进首页，失效清 token
+- 登录后默认状态：空调、灯光、窗帘、服务全部关闭，场景高亮清空
+
+禁止：
+- 在 View 中直接调用 ApiService
+- 在 ViewModel 中操作组件
+- 使用 V1 装饰器或 router
+
+验收：
+1. hvigorw test --mode module -p module=phone@default -p product=default --no-daemon
+2. hvigorw assembleHap --mode module -p product=default --no-daemon
+3. 失败先修
+4. 输出：修改文件、接口调用、测试/构建结果、剩余风险
+
+【提示词结束】
+
+
+============================================================
+提示词 04：首页 Feature
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md，只实现 features/home。
+只允许修改 features/home，以及必要的 commons/network、commons/datastore 接口；
+禁止修改其他 Feature、products/phone、后端和素材。
+
+必须完成：
+- HomePage / HomeViewModel / HomeModel 严格 MVVM
+- 整房快照：房间、空调、场景、灯光、窗帘、服务 6 类数据
+- 空调：开关、16~30℃ 温度调节、当前温度展示
+- 首页场景：切换场景时必须调用 POST /api/light/scene
+- 晚安模式：调用 POST /api/light/scene，使用 goodnight/off，不能只做本地高亮
+- 请勿打扰、清理房间：调用 POST /api/service/toggle
+- 失败 Toast，成功写回 AppState
+- 加载中显示加载提示和场景骨架，避免空白
+
+重点：
+- 评分点 B-5 要求首页场景和快捷服务正常调用后端，不能只本地改状态
+- 如果接口文档与上述路径不一致，以接口文档为准，并在输出中说明
+
+验收：
+1. hvigorw test --mode module -p module=phone@default -p product=default --no-daemon
+2. hvigorw assembleHap --mode module -p product=default --no-daemon
+3. 失败先修
+4. 输出：修改文件、接口调用、测试/构建结果、剩余风险
+
+【提示词结束】
+
+
+============================================================
+提示词 05：灯光 Feature
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md，只实现 features/light。
+只允许修改 features/light，以及必要的 commons/network、commons/datastore 接口；
+禁止修改其他 Feature、products/phone、后端和素材。
+
+必须完成：
+- LightPage / LightViewModel / LightModel 严格 MVVM
+- 灯光总开关：POST /api/light/master
+- 5 个场景：明亮/柔和/阅读/温馨/睡眠，POST /api/light/scene
+- 9 个独立灯具：POST /api/light/toggle
+- 总开关关闭时，场景和单灯操作必须拦截并 Toast
+- 场景高亮、灯具开关状态、失败回滚与 AppState 同步
+- 页面不显示操作日志区域
+
+验收：
+1. hvigorw test --mode module -p module=phone@default -p product=default --no-daemon
+2. hvigorw assembleHap --mode module -p product=default --no-daemon
+3. 失败先修
+4. 输出：修改文件、接口调用、测试/构建结果、剩余风险
+
+【提示词结束】
+
+
+============================================================
+提示词 06：窗帘 Feature
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md，只实现 features/curtain。
+只允许修改 features/curtain，以及必要的 commons/network、commons/datastore 接口；
+禁止修改其他 Feature、products/phone、后端和素材。
+
+必须完成：
+- CurtainPage / CurtainViewModel / CurtainModel 严格 MVVM
+- 布帘、窗纱独立 open/pause/close 三态
+- POST /api/curtain/control
+- 批量打开/关闭：POST /api/curtain/batch
+- 开合动画、按钮高亮、暂停位置与状态一致
+- 失败 Toast，状态回滚
+- 快照变化通过 AppState 监听同步到 ViewModel
+
+验收：
+1. hvigorw test --mode module -p module=phone@default -p product=default --no-daemon
+2. hvigorw assembleHap --mode module -p product=default --no-daemon
+3. 失败先修
+4. 输出：修改文件、接口调用、测试/构建结果、剩余风险
+
+【提示词结束】
+
+
+============================================================
+提示词 07：客房服务 Feature
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md，只实现 features/service。
+只允许修改 features/service，以及必要的 commons/network、commons/datastore 接口；
+禁止修改其他 Feature、products/phone、后端和素材。
+
+必须完成：
+- ServicePage / ServiceViewModel / ServiceModel 严格 MVVM
+- 请勿打扰、清理房间：POST /api/service/toggle
+- 乐观更新，失败回滚
+- SOS：POST /api/service/sos，成功/失败都有明确 Toast
+- 退出登录：POST /api/auth/logout，清 token、清 AppState、跳登录页
+- 服务开关只允许点击开关按钮触发，点击卡片空白区域不切换
+- 页面不显示操作日志区域
+
+验收：
+1. hvigorw test --mode module -p module=phone@default -p product=default --no-daemon
+2. hvigorw assembleHap --mode module -p product=default --no-daemon
+3. 失败先修
+4. 输出：修改文件、接口调用、测试/构建结果、剩余风险
+
+【提示词结束】
+
+
+============================================================
+提示词 08：集成与收口
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md 和 5 个 Feature 的实际代码。
+完成 products/phone 集成和全局收口。
+只允许修改 products/phone，以及必要的 commons 接口；
+禁止修改已完成 Feature 的业务逻辑，禁止改后端和素材。
+
+必须完成：
+- 登录态切换：未登录显示 LoginPage，已登录显示主界面
+- Navigation + NavPathStack：4 个 Tab、页面跳转、系统返回回首页
+- 退出登录回登录页
+- 3 秒轮询：启动/停止位置正确，页面不可见时停止
+- 401/1101/1102：清 token，回登录页
+- 网络异常、业务码错误统一 Toast
+- 冷启动自动登录
+- 登录后默认全关：空调、灯光、窗帘、服务、场景高亮
+- 首页加载态、空态、错误态
+- 检查所有页面无 V1 装饰器、无 router、无跨层调用
+
+验收：
+1. ohpm install --all
+2. hvigorw test --mode module -p module=phone@default -p product=default --no-daemon
+3. hvigorw assembleHap --mode module -p product=default --no-daemon
+4. 失败先修
+5. 输出：修改文件、测试结果、构建结果、未解决风险
+
+【提示词结束】
+
+
+============================================================
+提示词 09：测试用例与测试报告
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md 和实际代码，编写并执行测试。
+只允许修改 products/phone/src/test、必要的测试配置和 docs 下的测试报告；
+禁止为了通过测试而修改业务逻辑，除非确认是业务缺陷。
+
+必须完成：
+- 使用 hypium，不少于 10 个可独立执行的测试
+- 覆盖三类场景：
+  1) 登录：成功、房号错误、姓名错误、字段为空
+  2) 设备控制：温度 16/30 边界、灯光场景、窗帘三态
+  3) 异常处理：网络异常、Token 失效、参数错误
+- 测试报告包含：环境、测试数据、用例、预期、实际、是否通过、缺陷
+- 只记录真实执行结果；UI 用例未执行就写“未执行”，不要伪造
+
+验收：
+1. hvigorw test --mode module -p module=phone@default -p product=default --no-daemon
+2. 读取真实 test_result.txt
+3. 报告中写入真实数量，例如 Tests run / Failure / Error / Pass
+4. 输出：测试文件、真实结果、未覆盖项
+
+【提示词结束】
+
+
+============================================================
+提示词 10：ModuleA 文档与 draw.io 图片
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md 和实际代码，生成 提交/ModuleA 的三份交付物。
+以代码事实为准，不要凭记忆写。
+
+必须完成：
+
+1. 01-需求分析清单
+- 5 大功能模块：登录、首页、灯光、窗帘、客房服务
+- 每项包含模块名 + 核心交互描述
+- 至少 5 条关键业务流程，每条写清：起点、关键步骤、终点
+- 功能 → 入口页面 → 关键业务流程对应表
+
+2. 02-三层架构图
+- 使用 draw.io 原生 .drawio 文件完成
+- 必须包含：
+  - Commons 4 个模块：datastore/network/uicomponents/utils
+  - Features 5 个模块：login/home/light/curtain/service
+  - Products：phone
+  - 依赖方向：Products → Features → Commons
+  - 图例与命名规范
+- 从 .drawio 导出 PNG，建议 2 倍分辨率
+- 不要用 Mermaid 作为最终交付图
+
+3. 03-MVVM 分层示意图
+- 使用 draw.io 原生 .drawio 文件完成
+- 任选 light 模块，画 View / ViewModel / Model
+- 必须体现：
+  - View 与 ViewModel 双向绑定
+  - ViewModel 与 Model 数据流
+  - 无跨层调用：View 不直接调 ApiService，ViewModel 不操作组件
+  - AppState 的 @Trace 写回与刷新
+- 导出 PNG
+
+验收：
+- 三份文件可打开、图清晰、中文不乱码
+- .drawio 可编辑，PNG 从 .drawio 导出
+- 不把 Mermaid 源码当作最终图
+- 输出：文件路径、图片尺寸、生成方式
+
+【提示词结束】
+
+
+============================================================
+提示词 11：打包与最终检查
+============================================================
+
+【提示词开始】
+
+先读 PROJECT_SPEC.md，按赛场要求整理 提交 目录。
+不要修改业务代码，只做打包、导出和检查。
+
+目标结构：
+提交/ModuleA/
+  01-需求分析清单.pdf 或 .md
+  02-三层架构图.png
+  03-MVVM分层示意图.png
+  drawio源文件/
+提交/ModuleB/
+  smart_hotel.zip
+提交/ModuleC/
+  HAP 文件
+  测试用例代码/
+  测试报告.pdf
+提交/PROMPTS/
+  prompts-工位号.txt
+
+必须完成：
+1. ModuleB
+- 压缩完整 DevEco 工程
+- 排除 .hvigor、oh_modules、build、.test、.idea、.preview、local.properties
+- 解压到临时目录，执行 ohpm install --all
+- 运行 test 和 assembleHap，确认退出码为 0
+- 记录真实结果
+
+2. ModuleC
+- 复制 HAP，命名规范；没有签名材料就保留 unsigned，不伪造签名
+- 复制测试用例源码
+- 生成测试报告，写真实测试结果
+- 不声称模拟器已安装运行；未执行就写“未执行”
+
+3. ModuleA
+- 确认 5 个模块、5 条以上业务流程、架构图、MVVM 图齐全
+- 确认 PNG 来自 .drawio，中文正常
+
+4. PROMPTS
+- 从 OpenCode 导出全部真实提示词
+- 文件名 prompts-工位号.txt
+- 不要把本“重做版提示词包”放进 PROMPTS
+
+5. 最终检查
+- 逐项列出目录树、文件大小、缺失项
+- 运行 zip 解压校验
+- 输出：完成项、风险项、需要我手工处理的事项
+
+【提示词结束】
+
+
+============================================================
+每阶段验收清单（DoD）
+============================================================
+
+[ ] 只修改了提示词允许的文件
+[ ] 没有使用 V1 装饰器
+[ ] 没有使用 router
+[ ] View 没有直接调用 ApiService/HttpClient
+[ ] ViewModel 没有操作 UI 组件
+[ ] 接口路径与接口文档一致
+[ ] 失败有 Toast，成功有状态写回
+[ ] 登录后默认状态正确
+[ ] 测试真实执行，报告有预期/实际
+[ ] assembleHap 退出码 0
+[ ] 没有修改后端和素材
+
+
+============================================================
+最容易丢分的点（重做时优先处理）
+============================================================
+
+1. 首页场景只做本地高亮
+   - 评分点 B-5 要求首页场景调用后端
+   - 必须调用 POST /api/light/scene
+   - 晚安模式也要调用接口，不能只改 homeSceneId
+
+2. HAP 命名
+   - 签名后建议改名：smart_hotel-phone-1.0.0.hap
+   - 不要长期保留 unsigned 后缀作为最终提交名
+
+3. 测试报告
+   - 只写真实执行结果
+   - UI 用例未执行就写“未执行”，不要伪造通过
+   - 测试数量、通过数、失败数必须和 test_result.txt 一致
+
+4. UI 还原和动画
+   - 先提取素材/视频关键帧，再写 UI
+   - 不要用文字描述代替实际视觉对齐
+   - 窗帘动画单独验收：打开、暂停、关闭、批量
+
+5. draw.io
+   - 最终图必须是 .drawio 导出的 PNG
+   - 不要用 Mermaid 截图冒充
+   - 架构图要标清 4+5+1 模块和依赖方向
+   - MVVM 图要标清双向绑定和无跨层调用
+
+6. 提示词导出
+   - 每个提示词单独发送，方便最后导出
+   - 不要把需求全部塞进一个超长提示词
+   - 不要把本文件放进 PROMPTS
+
+
+============================================================
+推荐发送顺序
+============================================================
+
+01 生成 PROJECT_SPEC.md
+02 工程骨架与 Commons
+03 登录 Feature
+04 首页 Feature
+05 灯光 Feature
+06 窗帘 Feature
+07 客房服务 Feature
+08 集成与收口
+09 测试与报告
+10 ModuleA 文档与 draw.io
+11 打包与最终检查
+
+每次只发一个；上一步测试/构建通过后再发下一步。
+如果某一步失败，先让 AI 修到通过，不要继续堆功能。

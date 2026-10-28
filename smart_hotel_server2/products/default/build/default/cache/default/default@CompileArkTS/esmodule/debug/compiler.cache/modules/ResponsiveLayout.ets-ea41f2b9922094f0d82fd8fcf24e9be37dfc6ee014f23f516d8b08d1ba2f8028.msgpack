@@ -1,0 +1,109 @@
+Ôr@œªassertions¤code´customTransformCache¢id¤meta¬originalCode±originalSourcemap«resolvedIds®sourcemapChainµsyntheticNamedExportsµtransformDependencies¨cacheAstÔrA ÂÙwD:\useful_things\DevEco\materials\smart_hotel_server2\features\responsiveLayout\src\main\ets\pages\ResponsiveLayout.etsÔrB›ªmoduleName±isLocalDependency¯isNodeEntryFile§pkgPath±belongProjectPath§pkgNameªpkgVersion±dependencyPkgInfo¯hostModulesInfo°belongModulePath¬shouldEmitJs°responsiveLayoutÃÂÙOD:\useful_things\DevEco\materials\smart_hotel_server2\features\responsiveLayoutÙ5D:\useful_things\DevEco\materials\smart_hotel_server2¶@ohos/responsivelayout¥1.0.0ÔrC’§pkgNameªpkgVersion¶@ohos/responsivelayout¥1.0.0‘ÔrD’²hostDependencyName®hostModuleNameÙ%./src/main/ets/pages/ResponsiveLayout°responsiveLayoutÙOD:\useful_things\DevEco\materials\smart_hotel_server2\features\responsiveLayoutÃÚ»import { BreakpointSystem, BreakPointType } from '@ohos/common';
+import { GridComponent } from '../view/GridComponent';
+import { commonConstants } from '../constants/CommonConstants';
+import { TabBarItem } from '../viewmodel/TabBarItem';
+import TabsViewModel from '../viewmodel/TabsViewModel';
+
+/**
+ * ResponsiveLayout page is the entry of project responsiveLayout which combining tab components with grid components.
+ */
+@Builder
+export function responsiveLayout() {
+  Column() {
+    TabIndex()
+  }
+}
+
+@Component
+export struct TabIndex {
+  @State currentIndex: number = 0;
+  @State tabs: TabBarItem[] = TabsViewModel.getTabData();
+  @StorageLink('mainBreakpoint') currentBreakpoint: string = commonConstants.breakpointsInitializeName;
+  private readonly breakpointSystem: BreakpointSystem = new BreakpointSystem(commonConstants.breakpointSystemName);
+
+  @Builder tabBarBuilder(tabBar: TabBarItem) {
+    Flex({
+      direction: new BreakPointType({
+        sm: FlexDirection.Column,
+        md: FlexDirection.Row,
+        lg: FlexDirection.Column,
+        xl: FlexDirection.Column
+      })
+      .getValue(this.currentBreakpoint), justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center
+    }) {
+      SymbolGlyph($r('sys.symbol.person_crop_circle_fill_1'))
+        .fontColor(this.currentIndex === tabBar.id ?
+          [$r('sys.color.ohos_id_color_text_primary_activated')] : [$r('sys.color.ohos_id_color_text_secondary')])
+        .fontSize($r('app.float.tab_img_width'))
+      Text(tabBar.name)
+        .fontSize($r('app.float.tab_text_font_size'))
+        .fontColor(this.currentIndex === tabBar.id ?
+          $r('sys.color.ohos_id_color_text_primary_activated') : $r('sys.color.ohos_id_color_text_secondary'))
+        .margin(new BreakPointType<Padding>({
+          sm: { top: $r('app.float.tab_text_sm_top'), left: $r('app.float.tab_text_sm_left') },
+          md: { top: $r('app.float.tab_text_md_top'), left: $r('app.float.tab_text_md_left') },
+          lg: { top: $r('app.float.tab_text_lg_top'), left: $r('app.float.tab_text_lg_left') },
+          xl: { top: $r('app.float.tab_text_xl_top'), left: $r('app.float.tab_text_xl_left') }
+        })
+        .getValue(this.currentBreakpoint))
+    }
+    .width(commonConstants.flexTabBarWidth)
+    .height(commonConstants.flexTabBarHeight)
+  }
+
+  aboutToAppear() {
+    this.breakpointSystem.register(this.getUIContext());
+  }
+
+  aboutToDisappear() {
+    this.breakpointSystem.unregister();
+  }
+
+  build() {
+    Column() {
+      Tabs({
+        barPosition: new BreakPointType({
+          sm: BarPosition.End,
+          md: BarPosition.End,
+          lg: BarPosition.Start,
+          xl: BarPosition.Start
+        })
+        .getValue(this.currentBreakpoint)
+      }) {
+        ForEach(this.tabs, (item: TabBarItem) => {
+          TabContent() {
+            GridComponent()
+          }
+          .tabBar(this.tabBarBuilder(item))
+          .width(commonConstants.tabContentWidth)
+          .height(commonConstants.tabContentHeight)
+        }, (item: TabBarItem) => item.id.toString())
+      }
+      .vertical(new BreakPointType({
+        sm: commonConstants.tabSmVertical,
+        md: commonConstants.tabMdVertical,
+        lg: commonConstants.tabLgVertical,
+        xl: commonConstants.tabXlVertical
+      })
+      .getValue(this.currentBreakpoint))
+      .barWidth(new BreakPointType({
+        sm: commonConstants.tabSmBarWidth,
+        md: commonConstants.tabMdBarWidth,
+        lg: commonConstants.tabLgBarWidth,
+        xl: commonConstants.tabXlBarWidth
+      })
+      .getValue(this.currentBreakpoint))
+      .barHeight(new BreakPointType({
+        sm: commonConstants.tabSmBarHeight,
+        md: commonConstants.tabMdBarHeight,
+        lg: commonConstants.tabLgBarHeight,
+        xl: commonConstants.tabXlBarHeight
+      })
+      .getValue(this.currentBreakpoint))
+      .onAnimationStart((index: number, targetIndex: number) => {
+        this.currentIndex = targetIndex;
+      })
+    }
+    .backgroundColor($r('sys.color.ohos_id_color_sub_background'))
+  }
+}ÀÔrE”¬@ohos/common¼../constants/CommonConstantsµ../view/GridComponentº../viewmodel/TabsViewModelÔrF–ªassertions¨external¢id¤metaªresolvedByµsyntheticNamedExportsAÂÙFD:\useful_things\DevEco\materials\smart_hotel_server2\common\Index.etsAªoh-resolveÂFAÂÙzD:\useful_things\DevEco\materials\smart_hotel_server2\features\responsiveLayout\src\main\ets\constants\CommonConstants.etsAªoh-resolveÂFAÂÙsD:\useful_things\DevEco\materials\smart_hotel_server2\features\responsiveLayout\src\main\ets\view\GridComponent.etsAªoh-resolveÂFAÂÙxD:\useful_things\DevEco\materials\smart_hotel_server2\features\responsiveLayout\src\main\ets\viewmodel\TabsViewModel.etsAªoh-resolveÂÂÔrG”²dynamicImportCache¹exportAllDeclarationCache»exportNamedDeclarationCache«importCache”ÔrH•¤type¥start£endªspecifiers¦source±ImportDeclarationÌ€ÌÀ’ÔrI•¤type¥start£end¨imported¥local¯ImportSpecifierÌ‰Ì™ÔrJ”¤type¥start£end¤nameªIdentifierÌ‰Ì™°BreakpointSystemJªIdentifierÌ‰Ì™°BreakpointSystemI¯ImportSpecifierÌ›Ì©JªIdentifierÌ›Ì©®BreakPointTypeJªIdentifierÌ›Ì©®BreakPointTypeÔrK•¤type¥start£end¥value£raw§LiteralÌ±Ì¿¬@ohos/common®'@ohos/common'H±ImportDeclarationÌÂÌø‘I¯ImportSpecifierÌËÌØJªIdentifierÌËÌØ­GridComponentJªIdentifierÌËÌØ­GridComponentK§LiteralÌàÌ÷µ../view/GridComponent·'../view/GridComponent'H±ImportDeclarationÌúÍ9‘I¯ImportSpecifierÍÍJªIdentifierÍÍ¯commonConstantsJªIdentifierÍÍ¯commonConstantsK§LiteralÍÍ8¼../constants/CommonConstants¾'../constants/CommonConstants'H±ImportDeclarationÍ;Ír‘ÔrL”¤type¥start£end¥local¶ImportDefaultSpecifierÍBÍOJªIdentifierÍBÍO­TabsViewModelK§LiteralÍUÍqº../viewmodel/TabsViewModel¼'../viewmodel/TabsViewModel'
